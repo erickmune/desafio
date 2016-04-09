@@ -1,0 +1,35 @@
+﻿@model DesafioMinhaVida.Entities.ElectricGuitar
+<style>
+    .submit {
+        margin-top: 10px;
+    }
+</style>
+
+@using (Html.BeginForm("Edit", "ElectricGuitar", FormMethod.Post))
+{
+    <div class="container-fluid">
+        <div class="form-group">
+            @Html.LabelFor(e => e.Name, "Name")
+            @Html.TextBoxFor(e => e.Name, new { @class = "form-control", @placeholder = "Insert the name", @value = Model.Name , @id = "eGuitar.name" })
+            @Html.ValidationMessageFor(e => e.Name, String.Empty, new { @class = "label label-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(e => e.Price, "Price")
+            @Html.TextBoxFor(e => e.Price, new { @class = "form-control", @placeholder = "Insert the price", @value = Model.Price, @id = "eGuitar.price" })
+            @Html.ValidationMessageFor(e => e.Price, String.Empty, new { @class = "label label-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(e => e.Description, "Description")
+            @Html.TextAreaFor(e => e.Description, new { @class = "form-control", @placeholder = "Insert the description", @value = Model.Description, @id = "eGuitar.description" })
+            @Html.ValidationMessageFor(e => e.Description, String.Empty, new { @class = "label label-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(e => e.ImageUrl, "Image Url")
+            @Html.TextBoxFor(e => e.ImageUrl, new { @class = "form-control", @value = Model.ImageUrl, @id = "eGuitar.imageurl" })
+        </div>
+
+        <input type="submit" value="Submit" id="btn-submit" class="btn btn-primary" />
+        <a href="/ElectricGuitar/Index" class="btn btn-primary"><span>Voltar</span></a>
+    </div>    
+}

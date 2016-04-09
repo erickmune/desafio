@@ -1,0 +1,37 @@
+﻿@model IList<DesafioMinhaVida.Entities.ElectricGuitar>
+
+<a href="~/ElectricGuitar/Form" class="btn btn-primary"><span>New Eletric Guitar</span></a>
+<br />
+<div class="col-xs-12 col-sm-12">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Date Created</th>
+                <th>Image Url</th>
+                <th>SKU</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var eGuitars in Model)
+            {
+                <tr class="eGuitarRow">
+                    <td>@eGuitars.Id</td>
+                    <td>@eGuitars.Name</td>
+                    <td>R$ @eGuitars.Price</td>
+                    <td>@eGuitars.Description</td>
+                    <td>@eGuitars.DateCreated</td>
+                    <td>@eGuitars.ImageUrl</td>
+                    <td>@eGuitars.SKU</td>
+                    <td><a href="/ElectricGuitar/Edit/@eGuitars.Id" class="btn btn-primary" id="edit-@eGuitars.Id"><span>Edit</span></a></td>
+                    <td><a href="/ElectricGuitar/Delete/@eGuitars.Id" class="btn btn-danger" id="delete-@eGuitars.Id"><span>Delete</span></a></td>                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
